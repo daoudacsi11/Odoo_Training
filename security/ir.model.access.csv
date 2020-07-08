@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vetapp_animal,access_vetapp_animal,model_vetapp_animal,base.group_user,1,1,1,1
+consider adding one. E.g. access_vetapp_species,access_vetapp_species,model_vetapp_species,base.group_user,1,1,1,1
+access_vetapp_breed,access_vetapp_breed,model_vetapp_breed,base.group_user,1,1,1,1
+access_vetapp_diagnosis,access_vetapp_diagnosis,model_vetapp_diagnosis,base.group_user,1,1,1,1
+access_vetapp_symptoms,access_vetapp_symptoms,model_vetapp_symptoms,base.group_user,1,1,1,1
+access_vetapp_treatment,access_vetapp_treatment,model_vetapp_treatment,base.group_user,1,1,1,1

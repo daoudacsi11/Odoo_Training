@@ -1,0 +1,71 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="vetapp.animal_list">
+      <field name="name">Animal list</field>
+      <field name="model">vetapp.animal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="species_id"/>
+          <field name="breed_id"/>
+<!--          <field name="owner_id"/>-->
+          <field name="birthdate"/>
+          <field name="age"/>
+          <field name="spayorneuter"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="vetapp.animal_form_view">
+      <field name="name">Animal</field>
+      <field name="model">vetapp.animal</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <field name="image_medium" widget="image" class="oe_avatar"/>
+            <div class="oe_title">
+              <h1><field name="name" placeholder="e.g Animal Name" help="Enter the animal name here"/></h1>
+            </div>
+            <group><group string="Animal Info">
+            <field name="species_id" options="{'no_create':True}"/>
+            <field name="breed_id"/>
+            <field name="owner_id"/>
+            <field name="birthdate"/>
+            </group><group string="Other Info">
+            <field name="age"/>
+            <field name="spayorneuter"/>
+            </group></group>
+            <notebook>
+              <page string="Note" name="notes">
+                <field name="notes"/>
+              </page>
+              <page string="Diagnosis" name="diagnosis">
+                <field name="diagnosis_ids"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="vetapp.animal_action_window">
+      <field name="name">Animal</field>
+      <field name="res_model">vetapp.animal</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Vet Clinic" id="vetapp.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Animals" id="vetapp.animal_menu" parent="vetapp.menu_root" action="vetapp.animal_action_window"/>
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="vetapp.menu_1_list" parent="vetapp.menu_1"
+              action="vetapp.action_window"/>
+    <menuitem name="Server to list" id="vetapp" parent="vetapp.menu_2"
+              action="vetapp.action_server"/>
+    -->
+  </data>
+</odoo>
